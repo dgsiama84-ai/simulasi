@@ -1,0 +1,18 @@
+packages:
+  "framer-motion": "Needed for stunning slot machine tile animations, background falling coins, and UI transitions"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to merge tailwind classes safely"
+  "lucide-react": "Beautiful icons for UI elements"
+
+images:
+  - path: "artifacts/raja-merak/public/images/hero-bg.png"
+    description: "Deep red and black radial gradient background with subtle gold dust and glowing abstract scatter aura, premium dark casino aesthetic"
+    aspect_ratio: "16:9"
+  - path: "artifacts/raja-merak/public/images/dragon-emblem.png"
+    description: "A fierce Asian dragon emblem in pure gold metallic texture, 3d rendered, high detail, casino scatter symbol on transparent or very dark background"
+    aspect_ratio: "1:1"
+
+notes:
+  - All data is managed locally using localStorage as requested.
+  - The application is a self-contained progressive client-side app.
+  - No external backend is necessary. All logic is embedded in hooks.

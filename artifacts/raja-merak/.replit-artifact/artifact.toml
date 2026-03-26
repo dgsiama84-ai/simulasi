@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Raja Merak"
+version = "1.0.0"
+id = "artifacts/raja-merak"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22762
+
+[services.development]
+run = "pnpm --filter @workspace/raja-merak run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/raja-merak", "run", "build" ]
+publicDir = "artifacts/raja-merak/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22762"
+BASE_PATH = "/"

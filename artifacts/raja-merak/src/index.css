@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+}
+
+:root {
+  /* Premium Dark Casino Theme */
+  --background: 0 0% 3%;      /* Very deep black/gray */
+  --foreground: 0 0% 98%;     /* Crisp white text */
+  
+  --card: 0 0% 7%;            /* Slightly lighter than bg */
+  --card-foreground: 43 40% 90%; 
+  
+  --primary: 43 100% 50%;     /* Rich Gold */
+  --primary-foreground: 0 0% 0%; 
+  
+  --secondary: 0 0% 12%;      /* Dark Gray */
+  --secondary-foreground: 43 100% 50%; 
+  
+  --muted: 0 0% 15%;          /* Medium Dark */
+  --muted-foreground: 0 0% 65%;
+  
+  --accent: 350 89% 40%;      /* Deep Casino Red */
+  --accent-foreground: 0 0% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 43 20% 20%;       /* Subdued Gold Border */
+  --ring: 43 100% 50%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 0%, #1a0b0b 0%, #080808 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+/* Custom Scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Animation utilities for the game */
+@keyframes coin-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes jackpot-flicker {
+  0%, 100% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FF8C00; transform: scale(1); }
+  50% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FF8C00, 0 0 80px #FF0000; transform: scale(1.05); }
+}
+
+.animate-jackpot {
+  animation: jackpot-flicker 0.5s ease-in-out infinite;
+  color: #FFD700;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to bottom, #FFF7B0 0%, #FFD700 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
